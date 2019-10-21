@@ -35,8 +35,14 @@ class CNN(nn.Module):
     def forward(self, x):
         x = self.conv1(x)
         x = self.conv2(x)
-        x = x.view(x.size(0), -1) # 展平多维的卷积图
-        x = self.fc1(x)
+        xx = x.view(x.size(0), -1) # 展平多维的卷积图
+        x = self.fc1(xx)
         output = self.out(x)
-        return output, x
+        return output, xx
+
+
+# In[ ]:
+
+
+
 
